@@ -97,7 +97,6 @@ function renderPlayerCards(players) {
 
 /**
  * Filtra os cards de jogadores visíveis com base nos valores selecionados nos filtros.
- * Esta função não faz uma nova requisição, apenas manipula a visibilidade dos elementos já na tela.
  */
 function filterPlayers() {
     const eloFilterValue = document.getElementById('eloFilter').value;
@@ -106,14 +105,15 @@ function filterPlayers() {
     const allPlayers = document.querySelectorAll('.player-card-wrapper');
 
     allPlayers.forEach(playerCard => {
-        const playerElo = playerCard.getAttribute('data-elo');
+        const playerElo = playerCard.getAttribute('data-elo'); // Ex: "Diamante 2"
         const playerRole = playerCard.getAttribute('data-role');
 
-        // Condições de visibilidade
-        const eloMatch = (eloFilterValue === 'all') || (eloFilterValue === playerElo);
+        // ======================= LÓGICA DO FILTRO ALTERADA =======================
+        // Para o Elo, verificamos se o texto do card INCLUI o valor do filtro.
+        // Para a Role, mantemos a verificação exata.
+        const eloMatch = (eloFilterValue === 'all') || (playerElo.includes(eloFilterValue));
         const roleMatch = (roleFilterValue === 'all') || (roleFilterValue === playerRole);
 
-        // Se o jogador corresponde a ambos os filtros (ou se o filtro é 'todos'), ele é exibido.
         if (eloMatch && roleMatch) {
             playerCard.style.display = ''; // Mostra o card
         } else {
