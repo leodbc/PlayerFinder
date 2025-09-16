@@ -1,0 +1,55 @@
+body {
+    background-color: #f4f4f9;
+}
+
+.player-card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: none;
+    border-radius: 10px;
+}
+
+.player-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+.card-header {
+    background-color: #002D62; /* Azul escuro temático */
+    color: white;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.badge {
+    font-size: 0.9em;
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+    border-color: #25D366;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1DAE54;
+    border-color: #1DAE54;
+    color: white;
+}
